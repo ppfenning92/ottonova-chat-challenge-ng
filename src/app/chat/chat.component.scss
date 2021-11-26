@@ -1,0 +1,21 @@
+.chat {
+  background: rgb(2,0,36);
+  background: linear-gradient(353deg, rgba(2,0,36,1) 0%, rgba(3,3,105,1) 65%, rgba(0,212,255,1) 100%);
+  height: 800px;
+  display: flex;
+  overflow-y: scroll;
+  flex-direction: column;
+  scroll-behavior: smooth;
+  &__bubble {
+    margin: 0.75rem;
+    background-color: white;
+    max-width: 60%;
+    border-radius: 50px 50px 50px 0;
+    padding: 2rem;
+
+    &.me {
+      align-self: flex-end;
+      border-radius: 50px 50px 0 50px;
+    }
+  }
+}
