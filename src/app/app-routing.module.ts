@@ -12,7 +12,7 @@ const routes: Routes = [
   {
     path: 'chat',
     component: ChatComponent,
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: '**',
