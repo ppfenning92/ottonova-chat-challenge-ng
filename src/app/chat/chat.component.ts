@@ -24,10 +24,11 @@ export class ChatComponent {
     this.sendMessage('init');
     this._chatService.getMessage().subscribe((data: MessageEvent) => {
       this.conversationLog.push(data)
-
+      this._scrollToBottom();
     })
     this._chatService.getCommand().subscribe((data: CommandEvent) => {
       this.conversationLog.push(data)
+      this._scrollToBottom();
     })
 
     this.commandResponseService.response$.subscribe((response: string) => {
@@ -35,13 +36,11 @@ export class ChatComponent {
     })
   }
 
-  ngAfterViewChecked() {
-    this._scrollToBottom();
-  }
 
   sendMessage(msg: string, skipCommandRequest: boolean = false) {
     const payload = {author: this.authService.user?.username ?? '', message: msg, ts: new Date()}
     this.conversationLog.push(payload)
+    this._scrollToBottom();
     this._chatService.sendMessage(payload)
     if (skipCommandRequest) return;
     this._chatService.sendCommand()
