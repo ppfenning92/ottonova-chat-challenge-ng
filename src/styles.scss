@@ -253,5 +253,7 @@ $altTheme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
 body {
   margin: 0;
   min-height: 100vh;
+  background: rgb(2,0,36);
+  background: linear-gradient(353deg, rgba(2,0,36,1) 0%, rgba(3,3,105,1) 65%, rgba(0,212,255,1) 100%);
 }
 

@@ -1,3 +1,8 @@
-<div>lat: {{data?.lat}}</div>
-<div>lng: {{data?.lng}}</div>
-<button mat-button (click)="continue()">Continue</button>
+<div>The coordinates [{{data?.lat}}, {{data?.lng}}] are marked for you on the map below.</div>
+<ng-container *ngIf="!!data">
+  <agm-map disableDefaultUI="true" [latitude]="data?.lat" [longitude]="data?.lng">
+    <agm-marker [latitude]="data?.lat" [longitude]="data?.lng"></agm-marker>
+  </agm-map>
+</ng-container>
+
+<button *ngIf="!widgetDone" mat-button mat-raised-button color="primary" (click)="continue()">Continue</button>

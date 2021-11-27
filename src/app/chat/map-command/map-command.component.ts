@@ -6,22 +6,20 @@ import {CommandResponseService} from "../../command-response.service";
   templateUrl: './map-command.component.html',
   styleUrls: ['./map-command.component.scss']
 })
-export class MapCommandComponent implements OnInit {
+export class MapCommandComponent {
 
   @Input('data')
   public data: {
     lat: number;
     lng: number;
   } | null = null
+  public widgetDone: boolean = false;
   constructor(
     public commandResponseService: CommandResponseService
   ) { }
 
-  ngOnInit(): void {
-    console.log(this.data)
-  }
-
   public continue() {
     this.commandResponseService.respond('continue')
+    this.widgetDone = true;
   }
 }

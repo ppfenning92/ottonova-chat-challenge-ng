@@ -1,3 +1,8 @@
+<div>Please rate this conversation</div>
+<div class="buttons">
 <ng-container *ngFor="let btn of buttons">
-  <button mat-button (click)="rate(btn)">{{btn}}</button>
+  <button [disabled]="widgetDone" [class.selected]="selected === btn" class="star-button" mat-button mat-icon-button mat-raised-button color="accent" (click)="rate(btn)">
+    <mat-icon class="mat-24">star</mat-icon>
+  </button>
 </ng-container>
+</div>

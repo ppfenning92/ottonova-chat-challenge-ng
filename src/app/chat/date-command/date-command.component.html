@@ -1,3 +1,8 @@
-<ng-container *ngFor="let btn of buttons">
-  <button mat-button (click)="select(btn)">{{btn.toLocaleUpperCase()}}</button>
+<div>Please select a date within the next 5 business days.</div>
+<ng-container *ngIf="!widgetDone">
+  <div class="buttons">
+    <ng-container *ngFor="let btn of buttons">
+      <button mat-button mat-raised-button color="primary" (click)="select(btn)">{{btn.toLocaleUpperCase()}}</button>
+    </ng-container>
+  </div>
 </ng-container>

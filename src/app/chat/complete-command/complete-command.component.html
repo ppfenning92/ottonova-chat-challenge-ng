@@ -1,2 +1,5 @@
-<button mat-button (click)="respond('yes')">Yes</button>
-<button mat-button (click)="respond('no')">No</button>
+<div>Do you want to finish this conversation?</div>
+<div class="buttons" *ngIf="!widgetDone">
+<button mat-button mat-raised-button color="primary" (click)="respond('yes')">Yes</button>
+<button mat-button mat-raised-button color="primary" (click)="respond('no')">No</button>
+</div>

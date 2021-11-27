@@ -20,6 +20,7 @@ export class DateCommandComponent implements OnInit {
 
   @Input('data')
   public dateIsoString: string | null = null
+  public widgetDone: boolean = false;
 
   public buttons: string[] = []
   constructor(
@@ -27,7 +28,6 @@ export class DateCommandComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(this.dateIsoString)
     if (!this.dateIsoString) return;
     const startDay: number = new Date(this.dateIsoString).getDay();
     for (let i = startDay; i < startDay + 7; i++) {
@@ -39,5 +39,6 @@ export class DateCommandComponent implements OnInit {
 
   public select(s: string) {
     this.commandResponseService.respond(s)
+    this.widgetDone = true;
   }
 }

@@ -2,7 +2,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  mat-card {
-    max-width: 60vw;
+  margin-top: 19vh;
+}
+
+.login {
+  padding: 1rem 2rem;
+  background-color: rgba(0, 0, 0, 0.31);
+  max-width: 60%;
+    color: white;
+  mat-form-field {
+    margin-block: 1rem;
+    display: block;
   }
 }

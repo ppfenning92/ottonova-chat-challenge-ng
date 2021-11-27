@@ -1,0 +1,18 @@
+.buttons {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+
+  margin-top: 1rem;
+}
+.star-button {
+  color: rgba(0,0,0,.11);
+  margin-right: .5rem;
+}
+
+.buttons > .star-button:hover,
+.buttons > .star-button.selected,
+.buttons > .star-button:hover ~ .star-button,
+.buttons > .star-button.selected ~ .star-button {
+  color: red
+}

@@ -1,21 +1,48 @@
 .chat {
-  background: rgb(2,0,36);
-  background: linear-gradient(353deg, rgba(2,0,36,1) 0%, rgba(3,3,105,1) 65%, rgba(0,212,255,1) 100%);
-  height: 800px;
+  height: 90vh;
+  box-sizing: border-box;
   display: flex;
   overflow-y: scroll;
   flex-direction: column;
   scroll-behavior: smooth;
+    padding: 0.5rem 0.875rem;
   &__bubble {
-    margin: 0.75rem;
-    background-color: white;
+    margin: 0.5rem;
+
+    padding: 1rem 2rem;
+    background-color: rgba(255, 255, 255, 0.9);
     max-width: 60%;
     border-radius: 50px 50px 50px 0;
-    padding: 2rem;
+
 
     &.me {
       align-self: flex-end;
       border-radius: 50px 50px 0 50px;
+    }
+
+    &__metadata {
+      font-size: 11px;
+      color: #333;
+    }
+
+    .command, .message {
+      padding: .75rem 0;
+    }
+  }
+}
+.input {
+  height: 10vh;
+  box-sizing: border-box;
+
+  padding: 0.5rem;
+  &__bubble {
+    background-color: rgba(255, 255, 255, 0.11);
+    border-radius: 50px;
+    padding: .375rem 2rem;
+
+    mat-form-field {
+      width: 100%;
+      color: whitesmoke;
     }
   }
 }

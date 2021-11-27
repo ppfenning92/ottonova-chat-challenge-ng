@@ -6,20 +6,18 @@ import {CommandResponseService} from "../../command-response.service";
   templateUrl: './complete-command.component.html',
   styleUrls: ['./complete-command.component.scss']
 })
-export class CompleteCommandComponent implements OnInit {
+export class CompleteCommandComponent {
 
   @Input('data')
-  public data: {
-    data: ['yes', 'no']
-  } | null = null
+  public data: ['yes', 'no'] | null = null
+
+  public widgetDone: boolean = false;
   constructor(
     public commandResponseService: CommandResponseService
   ) { }
 
-  ngOnInit(): void {
-    console.log(this.data)
-  }
   public respond(s: string) {
     this.commandResponseService.respond(s)
+    this.widgetDone = true;
   }
 }

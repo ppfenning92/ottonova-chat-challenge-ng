@@ -18,6 +18,9 @@ import { RateCommandComponent } from './chat/rate-command/rate-command.component
 import { DateCommandComponent } from './chat/date-command/date-command.component';
 import { MapCommandComponent } from './chat/map-command/map-command.component';
 import { CompleteCommandComponent } from './chat/complete-command/complete-command.component';
+import {environment} from "../environments/environment";
+import {AgmCoreModule} from "@agm/core";
+import {MatIconModule} from "@angular/material/icon";
 
 const config: SocketIoConfig = { url: 'https://demo-chat-server.on.ag/', options: {} };
 
@@ -37,13 +40,16 @@ const config: SocketIoConfig = { url: 'https://demo-chat-server.on.ag/', options
     BrowserAnimationsModule,
     CommonModule,
     SocketIoModule.forRoot(config),
-
+    AgmCoreModule.forRoot({
+      apiKey: environment.g_maps_key
+    }),
     MatCardModule,
     ReactiveFormsModule,
     MatSnackBarModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

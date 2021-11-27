@@ -2,6 +2,10 @@
 
   <ng-container *ngFor="let msg of conversationLog; let idx">
     <div class="chat__bubble" [class.me]="msg.author === authService.user?.username">
+      <div class="chat__bubble__metadata">
+        <span class="chat__bubble__metadata__author">{{msg.author}}</span>
+        <span class="chat__bubble__metadata__timestamp"> @ {{msg?.ts | date: 'dd.MM.yy hh:mm:ss'}}</span>
+      </div>
       <ng-container [ngSwitch]="msg.command?.type">
         <div class="command command--map" *ngSwitchCase="'map'">
           <app-map-command [data]="msg.command?.data"></app-map-command>
@@ -16,11 +20,22 @@
           <app-complete-command [data]="msg.command?.data"></app-complete-command>
         </div>
         <div class="message" *ngSwitchDefault>
-          <pre>{{msg | json}}</pre>
+          <span>{{msg.message}}</span>
         </div>
       </ng-container>
     </div>
   </ng-container>
 
 
+</div>
+<div class="input">
+  <div class="input__bubble">
+    <mat-form-field>
+      <input matInput type="text" [formControl]="inputCtrl">
+
+    <button matSuffix mat-button mat-icon-button [disabled]="!inputCtrl.value" (click)="send()">
+      <mat-icon class="mat-18">send</mat-icon>
+    </button>
+    </mat-form-field>
+  </div>
 </div>
